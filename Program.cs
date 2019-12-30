@@ -15,7 +15,12 @@ class Program
     }
 }
 
-public struct Person
+interface IPerson
+{
+    string Name();
+
+}
+public struct Person : IPerson
 {
     string fname, lname;
     public Person(string firstName, string lastName)
@@ -27,7 +32,13 @@ public struct Person
     public string Name() => $"{fname} {lname}";
 }
 
-public class PersonClass
+interface IPersonClass
+{
+    string ToString();
+    void Hello();
+}
+
+public class PersonClass : IPersonClass
 {
     private Person person;
     const string hello = "Hello";
