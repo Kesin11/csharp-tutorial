@@ -7,14 +7,17 @@ class Program
         string name = args[0];
         PersonClass person = new PersonClass("john", name);
         Console.WriteLine(person);
-        person.DisplayName();
+        person.Hello();
+
+        // Named argument
+        PersonClass namedPerson = new PersonClass(lastName: "john", firstName: name);
+        namedPerson.Hello();
     }
 }
 
 public struct Person
 {
-    string fname;
-    string lname;
+    string fname, lname;
     public Person(string firstName, string lastName)
     {
         fname = firstName;
@@ -27,11 +30,12 @@ public struct Person
 public class PersonClass
 {
     private Person person;
+    const string hello = "Hello";
     public PersonClass(string firstName, string lastName)
     {
         person = new Person(firstName, lastName);
     }
 
     public override string ToString() => $"{person.Name()}".Trim();
-    public void DisplayName() => Console.WriteLine(ToString());
+    public void Hello() => Console.WriteLine($"{hello} {ToString()}");
 }
