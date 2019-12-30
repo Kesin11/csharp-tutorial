@@ -23,7 +23,7 @@ namespace Tutorial.Tests
         [Fact]
         public void Test2()
         {
-            Assert.Equal(2, i);
+            Assert.Equal(1, i);
 
         }
     }
