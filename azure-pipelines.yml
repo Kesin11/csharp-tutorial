@@ -2,10 +2,18 @@ pool:
   vmImage: 'ubuntu-16.04'
 
 steps:
+- task: UseDotNet@2
+  displayName: Setup dotnet 3.1.x
+  inputs:
+    packageType: 'sdk'
+    version: '3.1.x'
+    
 - task: DotNetCoreCLI@2
+  displayName: Build
   inputs:
     command: 'build'
 
 - task: DotNetCoreCLI@2
+  displayName: Test
   inputs:
     command: 'test'
