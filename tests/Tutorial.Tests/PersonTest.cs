@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Tutorial.Tests
 {
-    public class UnitTest1
+    public class PersonTest
     {
         [Fact]
         public void Test1()
