@@ -3,6 +3,8 @@ trigger:
     include:
     - '*'
 
+pr: none
+
 pool:
   vmImage: 'ubuntu-16.04'
 
@@ -12,7 +14,7 @@ steps:
   inputs:
     packageType: 'sdk'
     version: '3.1.x'
-    
+
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
@@ -22,3 +24,11 @@ steps:
   displayName: Test
   inputs:
     command: 'test'
+    arguments: '--test-adapter-path:. --logger:"junit;LogFilePath=artifacts\test-output.xml"'
+    publishTestResults: false
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/test-*.xml'
+    mergeTestResults: true

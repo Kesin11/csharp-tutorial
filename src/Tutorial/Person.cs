@@ -9,7 +9,7 @@ namespace Tutorial
   }
   public struct Person : IPerson
   {
-    string fname, lname;
+    public string fname, lname;
     public Person(string firstName, string lastName)
     {
       fname = firstName;
