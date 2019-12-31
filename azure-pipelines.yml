@@ -31,6 +31,7 @@ steps:
   inputs:
     command: 'test'
     arguments: '--test-adapter-path:. --logger:"junit;LogFilePath=artifacts\test-output.xml"'
+    publishTestResults: false
 
 - task: PublishTestResults@2
   inputs:
